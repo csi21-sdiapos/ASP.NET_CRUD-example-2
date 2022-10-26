@@ -1,0 +1,41 @@
+﻿@model IEnumerable<ASP.NET_CRUD_example_2.Models.RelAlumAsigDTO>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Alumno)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Asignatura)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Alumno.Alumno_apellidos)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Asignatura.Asignatura_nombre)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.RelAlumAsig_id">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.RelAlumAsig_id">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.RelAlumAsig_id">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
